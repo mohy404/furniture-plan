@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>خطة إطلاق موقع أثاث مستعمل — MVP وخطة نمو</title>
+  <style>
+    :root{
+      --bg-start:#1a1f2e;
+      --bg-end:#0f1419;
+      --card-bg:#232934;
+      --card-border:rgba(255,255,255,0.08);
+      --accent:#10b981;
+      --accent-light:#34d399;
+      --muted:#94a3b8;
+      --text:#f1f5f9;
+      --text-secondary:#cbd5e1;
+    }
+    
+    *{box-sizing:border-box}
+    
+    body{
+      font-family:'Segoe UI', 'Noto Kufi Arabic', Tahoma, Arial, sans-serif;
+      background:linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
+      color:var(--text);
+      margin:0;
+      padding:32px 20px;
+      line-height:1.7;
+      min-height:100vh;
+    }
+    
+    .wrap{
+      max-width:900px;
+      margin:0 auto;
+      padding:40px;
+      background:var(--card-bg);
+      border:1px solid var(--card-border);
+      border-radius:16px;
+      box-shadow:0 8px 32px rgba(0,0,0,0.4);
+    }
+    
+    header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:32px;
+      padding-bottom:24px;
+      border-bottom:2px solid rgba(255,255,255,0.05);
+    }
+    
+    h1{
+      font-size:26px;
+      margin:0;
+      font-weight:700;
+      color:var(--text);
+      line-height:1.4;
+    }
+    
+    p.lead{
+      color:var(--text-secondary);
+      margin:12px 0 0;
+      font-size:15px;
+      line-height:1.6;
+    }
+    
+    section.card{
+      background:rgba(255,255,255,0.03);
+      padding:24px;
+      border-radius:12px;
+      margin-bottom:20px;
+      border:1px solid rgba(255,255,255,0.06);
+      transition:all 0.3s ease;
+    }
+    
+    section.card:hover{
+      background:rgba(255,255,255,0.04);
+      border-color:rgba(255,255,255,0.1);
+    }
+    
+    h2{
+      margin:0 0 16px;
+      font-size:20px;
+      color:var(--accent-light);
+      font-weight:600;
+    }
+    
+    h3{
+      font-size:16px;
+      color:var(--accent);
+      margin:0 0 12px;
+      font-weight:600;
+    }
+    
+    ul{
+      margin:12px 0 0;
+      padding-right:20px;
+      padding-left:0;
+    }
+    
+    li{
+      margin:10px 0;
+      color:var(--text-secondary);
+      font-size:15px;
+    }
+    
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:16px;
+    }
+    
+    .grid > div{
+      background:rgba(0,0,0,0.15);
+      padding:20px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+    
+    .muted{
+      color:var(--muted);
+      font-size:14px;
+    }
+    
+    .price{
+      background:rgba(16,185,129,0.12);
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:6px;
+      color:var(--accent-light);
+      font-weight:600;
+      font-size:14px;
+      border:1px solid rgba(16,185,129,0.2);
+    }
+    
+    .check{color:#4ade80;margin-left:8px}
+    
+    footer{
+      margin-top:32px;
+      padding-top:24px;
+      border-top:1px solid rgba(255,255,255,0.06);
+      color:var(--muted);
+      font-size:14px;
+      text-align:center;
+    }
+    
+    .note{
+      background:rgba(16,185,129,0.05);
+      padding:20px;
+      border-right:4px solid var(--accent);
+      border-radius:8px;
+      margin-top:10px;
+      border:1px solid rgba(16,185,129,0.15);
+    }
+    
+    .note h2{
+      color:var(--accent-light);
+      margin-bottom:12px;
+    }
+    
+    .note p{
+      margin:0;
+      line-height:1.7;
+    }
+    
+    code{
+      background:rgba(0,0,0,0.3);
+      padding:4px 8px;
+      border-radius:5px;
+      color:#86efac;
+      font-family:'Courier New', monospace;
+      font-size:13px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+    
+    strong{
+      color:var(--text);
+      font-weight:600;
+    }
+    
+    @media(max-width:768px){
+      .wrap{padding:24px 20px}
+      header{flex-direction:column;gap:12px}
+      h1{font-size:22px}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>خطة إطلاق موقع أثاث مستعمل — MVP &amp; نمو (6-12 شهر)</h1>
+        <p class="lead">ملف مُنظَّم يجمَع النصائح والاستراتيجية والتكتيكات العملية، مُقسَّم حسب المدة الزمانية، مع أفكار تحقيق الدخل المناسبة لبداية بدون بوابات دفع سعودية.</p>
+      </div>
+      <div class="muted">تاريخ الإنشاء: <strong>اليوم</strong></div>
+    </header>
+
+    <section class="card">
+      <h2>ملخص الهدف</h2>
+      <p class="muted">إنشاء منصة عربية/إنجليزية مخصصة للأثاث المستعمل في السعودية (تركز على expats والمستخدم المحلي)، تبدأ كموقع إعلانات مجاني ثم تتدرج في إضافة مصادر دخل وخدمات لوجستية.</p>
+    </section>
+
+    <section class="card">
+      <h2>المرحلة التحضيرية — أسبوعان (Pre-launch)</h2>
+      <ul>
+        <li>حدد اسم نطاق بسيط وسهل (<code>example.com</code>) واضبط استضافة اقتصادية (VPS أو shared) مع شهادة SSL.</li>
+        <li>صفحة هبوط (Landing) بسيطة بها: شعار، وصف قصير، زر "انشر إعلانك مجاناً"، نموذج جمع إيميلات لبدء التشغيل.</li>
+        <li>أول محتوى: سياسة استخدام واضحة، شروط خدمة، إرشادات سلامة ونصائح الشراء/البيع، وصف واضح لعدم تدخلك في الصفقة (مهم قانونياً).</li>
+        <li>إعداد حسابات سوشيال (فيسبوك، إنستجرام، سناب، تويتر، وجروبات فيسبوك للمدن السعودية).</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>المرحلة الأولى — 0 إلى 3 أشهر (تجميع المستخدمين)</h2>
+      <div class="grid">
+        <div>
+          <h3>منتج (MVP)</h3>
+          <ul>
+            <li>إعلانات مجانية: رفع صور، وصف، الحالة، السعر، المنطقة، تواصل عبر رقم/واتساب.</li>
+            <li>بحث وفلترة حسب المدينة، الحالة، السعر، نوع القطعة.</li>
+            <li>دعم ثنائي اللغة (عربي/إنجليزي).</li>
+            <li>خانة "بيع عاجل" لأصحاب الرحيل.</li>
+            <li>سهولة النشر بدون تسجيل (مع خيار التسجيل لاحقًا).</li>
+          </ul>
+        </div>
+        <div>
+          <h3>ترويج واكتساب مستخدمين</h3>
+          <ul>
+            <li>إطلاق حملات مدفوعة موجهة على فيسبوك وإنستجرام تستهدف expats والباحثين عن سكن.</li>
+            <li>التعاون مع جروبات expats في كل مدينة، ونشر إعلانات مستهدفة يوم الإطلاع (weekend peak).</li>
+            <li>اعرض مبادرة "نشر مجاني لمدة X أيام" لجذب أول 500 إعلان.</li>
+            <li>محتوى تعليمي SEO: "نصائح بيع الأثاث المستعمل" + صفحات لكل مدينة.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>المرحلة الثانية — 3 إلى 6 أشهر (تحويل الترافيك إلى ثبات وثقة)</h2>
+      <ul>
+        <li>أضف صفحة تقييم البائعين/التعليقات لزيادة الثقة (بعد 500 عملية/تواصل ناجحة).</li>
+        <li>ابدأ بإضافة <span class="price">جوجل أدسنس</span> كدخل جانبي خفيف بعد الوصول إلى ترافيك مستقر (لا تقلّ عن 5k جلسة/شهر).</li>
+        <li>اختبر أسعار الإعلانات المميزة: مثال: <span class="price">15 ر.س لأسبوع</span>، <span class="price">40 ر.س لشهر</span>.</li>
+        <li>ابدأ شراكات مع 3 شركات نقل محلية: عرض خيار "نطلب النقل للعميل" وأحصل على عمولة أو رسوم إحالة.</li>
+        <li>اعمل حملات جمع ثقة: شهادات مستخدمين، قصص بيع سريعة، قبل/بعد صور للقطع المُجدّدة.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>المرحلة الثالثة — 6 إلى 12 شهر (توسيع مصادر الدخل وتثبيت النمو)</h2>
+      <ul>
+        <li>أطلق نظام الإعلانات المميزة رسميًا مع لوحة تحكم سهلة للبائعين لشراء الباقة عبر تحويل أو PayPal.</li>
+        <li>قدّم اشتراكات للتجار: باقات شهرية مع إعلانات غير محدودة وفلاتر مميزة وأسعار بروموت داخل البحث.</li>
+        <li>أدخل خدمة شراء مباشرة (we buy) حيث تتفق مع موزّنين لشراء أثاث بجملة ثم إعادة بيعه على المنصة — مصدر هام لربحية أعلى.</li>
+        <li>طوّر تطبيق بسيط (Android) في حال وصل الترافيك لمستوى مستقر قوي—لكن في البداية موقع responsive يكفي.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>نموذج الربح (المقترح) — ملائم لبداية بدون بوابات دفع سعودية</h2>
+      <ul>
+        <li><strong>المرحلة الأولى:</strong> إعلانات مدفوعة بسيطة عبر تحويل بنكي أو PayPal أو الدفع النقدي عند اللقاء للباقة المميزة.</li>
+        <li><strong>المرحلة الثانية:</strong> جوجل أدسنس (دخل سلبي)، عمولات إحالة لشركات النقل.</li>
+        <li><strong>المرحلة الثالثة:</strong> اشتراكات للتجار، خدمات شراء بالجملة، ورسوم عمولة على بعض الصفقات عالية القيمة.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>تكتيكات تسويق إضافية تفرق معاك</h2>
+      <ul>
+        <li>دعم إنجليزي واضح — استهدف expats في إعلاناتك مباشرة (تفعيل لغة لصفحة الهبوط).</li>
+        <li>إعلانات موجهة لمكاتب التوظيف وشركات العقار التي تستقبل موظفين جدد.</li>
+        <li>برنامج إحالة بسيط: "أحضر صديقًا يُعلن = إعلان مجاني".</li>
+        <li>تنظيم أيام بيع محلي (pop-up) بالشراكة مع معارض الأثاث المستعمل لرفع الوعي بالمنصة.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>نصائح عملية وتشغيلية مهمة</h2>
+      <ul>
+        <li>وضح في الشروط أنك "منصة إعلانات" ولا تتحمل مسؤولية الصفقة بين الطرفين (تحفظ قانوني بسيط).</li>
+        <li>ابدأ بدون قبول المدفوعات داخل المنصة — خلّي البيع والشراء يتم خارجيًا، وأنت تربح من الإعلانات والخدمات.</li>
+        <li>احتفظ بسجل للشكاوى وكن مستعدًا لاحقًا لتقديم خدمة نزاهة (escrow) إذا حبيت تضيف بوابة دفع.</li>
+        <li>راقب البيانات: عدد الإعلانات، تكرار المستخدمين، المدن النشطة، نسبة الإعلانات المميزة المشتراة — هذه مؤشرات نجاحك.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>قائمة فحص سريعة (Checklist)</h2>
+      <ul>
+        <li class="muted">✔ صفحة هبوط + جمع إيميلات</li>
+        <li class="muted">✔ نشر مجاني للأول 500 إعلان</li>
+        <li class="muted">✔ شراكات مع 2–3 شركات نقل</li>
+        <li class="muted">✔ نظام تعليقات/تقييم بسيط</li>
+        <li class="muted">✔ إضافة AdSense بعد 5k جلسة/شهر</li>
+      </ul>
+    </section>
+
+    <section class="card note">
+      <h2>ملاحظة أخيرة</h2>
+      <p class="muted">التركيز الأولي يجب أن يكون على توفير تجربة مستخدم بسيطة وجذب عدد كبير من الإعلانات. الربح سيأتي لاحقًا من إعلانات مميزة، اشتراكات، وخدمات لوجستية. لو تحب، أقدر أحوّل الصفحة دي لملف قابل للتحميل (HTML) مع نسخة جاهزة للنشر أو أجهز لك نسخة Landing page قابلة للتعديل.</p>
+    </section>
+
+    <footer>لو عايز الملف بصيغة تحميلية أو نسخة مخصصة (باللوجو بتاعك أو بيانات تواصل) قولي أعدله فورًا.</footer>
+  </div>
+</body>
+</html>
